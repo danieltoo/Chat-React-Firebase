@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Food Service</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Baloo|Lobster|Pacifico|Righteous|Shrikhand|Timmana" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style type="text/css">
+      .parallax-container {
+        color: rgba(255,255,255,.9);
+      }
+
+      .parallax {
+        height: 100%;
+
+      } 
+      .collapsible-header {
+       font-family: 'Lobster', cursive;"
+      }
+      h5 {
+        font-family: 'Baloo', cursive;
+      }
+      body {
+        background: url(fondo.jpg);
+      }
+       body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+  #content {
+    width: 100%;
+    height: 575px;
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+    
+  </style>
+  
+
+  
+</head>
+
+<body>
+
+  <nav class=" blue-grey darken-4" role="navigation" data-component="Navbar">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="/" class="brand-logo">
+        <h4 style="font-family: 'Lobster', cursive;">Food Service</h4>
+      </a>
+      <ul class="right hide-on-med-and-down " style="font-family: 'Baloo', cursive;">
+        <li class="tab"><a href="desayunos.html" class="active">Desayunos</a></li>
+        <li class="tab active"><a href="comidas.html" >Comidas</a></li>
+        <li class="tab"><a href="cenas.html">Cenas</a></li>
+        <li class="tab"><a href="reporte.html">Reporte</a></li>
+      </ul>
+      <ul id="nav-mobile" class="side-nav">
+        <li class="tab "><a href="desayunos.html" class="active">Desayunos</a></li>
+        <li class="tab active"><a href="comidas.html" >Comidas</a></li>
+        <li class="tab "><a href="cenas.html">Cenas</a></li>
+        <li class="tab"><a href="reporte.html">Reporte</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <form class="white-text" id="content" data-component="principal">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row">
+          <h3 class="center-align" style="font-family: 'Lobster', cursive;">Comidas</h3>
+        </div>
+        <div class="row">
+
+          <div class="col s12 l3">
+            <h5 class="center-align subheader" >Menu</h5>
+
+            <ul class="collapsible popout" data-collapsible="accordion">
+              <li>
+                <div class="collapsible-header red" onclick="menuentrada()" >Entrada</div>
+              </li>
+              <li>
+                <div class="collapsible-header red" onclick="menuplatofuerte()">Plato Fuerte</div>
+              </li>
+              <li>
+                <div class="collapsible-header red" onclick="menupostre()">Postre</div>
+              </li>
+              <li>
+                <div class="collapsible-header red" onclick="menubebidas()">Bebidas</div>
+              </li>
+             </ul>
+            </div>
+        
+          <div class="col l4 s12 offset-l1 hide " id="entrada">
+            <h5 class="center-align" >Entrada</h5>
+              <ul class="collapsible popout" data-collapsible="accordion">
+                <li>
+                  <div class="collapsible-header red" onclick="coctel()">
+                      <input type="checkbox" class="filled-in" id="test" name="coctel" value="Ensalada"/>
+                      <label for="test" class="white-text">Ensalada</label>
+                  </div>
+                </li>
+                <li>
+                  <div class="collapsible-header red" onclick="yogurt()">
+                      <input type="checkbox" class="filled-in" id="test1" name="yogurth" value="Sopa de fideo"/>
+                      <label for="test1" class="white-text">Sopa de fideo</label>
+                  </div>
+                </li>
+                <li>
+                  <div class="collapsible-header red" onclick="donas()">
+                        <input type="checkbox" class="filled-in" id="test2" name="donas"  value="Quesadillas"/>
+                        <label for="test2" class="white-text">Quesadillas</label>
+                      
+                  </div>
+                </li>
+                <li>
+                  <div class="collapsible-header red" onclick="hot()"> 
+                        <input type="checkbox" class="filled-in" id="test3" name="hot" value="Sándwich de jamón" />
+                        <label for="test3" class="white-text">Sándwich de jamón</label>
+                  </div>
+                </li>
+               </ul>
+          </div>
+
+          <div class="col l4 s12 offset-l1 hide " id="plato">
+            <h5 class="center-align" >Plato fuerte</h5>
+              <ul class="collapsible popout" data-collapsible="accordion">
+                <li>
+                  <div class="collapsible-header red" onclick="chilaquiles()" >
+                  <input type="checkbox" class="filled-in" id="test4" name="chilaquiles" value="Lomo al horno con salsa de zarzamora" />
+                        <label for="test4" class="white-text">Lomo al horno con salsa de zarzamora</label></div>
+                </li>
+                <li>
+                  <div class="collapsible-header red" onclick="enchiladas()">
+                    <input type="checkbox" class="filled-in" id="test5" name="enchiladas" value="Milanesa con sopa de arroz" />
+                        <label for="test5" class="white-text">Milanesa con sopa de arroz</label>
+                  </div>
+                </li>
+                <li>
+                  <div class="collapsible-header red" onclick="huevos()">
+                  <input type="checkbox" class="filled-in" id="test6" name="huevos" value="Carne asada"/>
+                        <label for="test6" class="white-text"> Carne asada</label>
+                 </div>
+                </li>
+                <li>
+                  <div class="collapsible-header red" onclick="burrito()">
+                  <input type="checkbox" class="filled-in" id="test7" name="burrito" value="Pozole"/>
+                        <label for="test7" class="white-text"> Pozole</label> </div>
+                </li>
+               </ul>
+          </div>
+
+          <div class="col l4 s12 offset-l1 hide" id="postre">
+            <h5 class="center-align" >Postre</h5>
+              <ul class="collapsible popout" data-collapsible="accordion">
+                <li>
+                  <div class="collapsible-header red" onclick="pastel()">
+                  <input type="checkbox" class="filled-in" id="test8" name="pastel" value="Rebana de pastel"/>
+                        <label for="test8" class="white-text"> Rebana de pastel</label></div>
+                </li>
+                <li>
+                  <div class="collapsible-header red" onclick="fresas()"> <input type="checkbox" class="filled-in" name="fresas" id="test9" value="Fresas con crema"/>
+                        <label for="test9" class="white-text"> Fresas con crema</label></div>
+                </li>
+                <li>
+                  <div class="collapsible-header red" onclick="helado()"> <input type="checkbox" class="filled-in" name="helado" id="test10" value="Helado"/>
+                        <label for="test10" class="white-text"> Helado</label></div>
+                </li>
+                <li>
+                  <div class="collapsible-header red" onclick="duraznos()"> <input type="checkbox" class="filled-in" name="duraznos" id="test11" value="Duraznos dulces"/>
+                        <label for="test11" class="white-text"> Duraznos dulces</label></div>
+                </li>
+               </ul>
+          </div>
+
+          <div class="col l3 s12 hide" id="bebidas">
+              <h5 class="center-align" >Bebidas</h5>
+              <ul class="collapsible popout" data-collapsible="accordion">
+                <li>
+                  <div class="collapsible-header red" onclick="menujugos()">Jugos</div>
+                </li>
+                <li>
+                  <div class="collapsible-header red" onclick="menucafe()">Café</div>
+                </li>
+                <li>
+                  <div class="collapsible-header red" onclick="menuaguas()">Aguas</div>
+                </li>
+               </ul>
+            </div>
+
+            <div class="col l3 s12 hide" id="jugos">
+            <h5 class="center-align" >Jugos</h5>
+              <ul class="collapsible popout" data-collapsible="accordion">
+                <li>
+                  <div class="collapsible-header red" onclick="zanahoria()"><input type="checkbox" class="filled-in" name="zanahoria" id="test12" value="Jugo de Zanahoria"/>
+                        <label for="test12" class="white-text" > Zanahoria</label></div>
+                </li>
+                <li>
+                  <div class="collapsible-header red" onclick="naranja()"><input type="checkbox" class="filled-in"  name="naranja" id="test13" value="Jugo de Naranja"/>
+                        <label for="test13"  class="white-text"> Naranja</label></div>
+                </li>
+                <li>
+                  <div class="collapsible-header red" onclick="pina()"><input type="checkbox" class="filled-in" name="pina" id="test15" value="Jugo de Piña"/>
+                        <label for="test15" class="white-text"> Piña</label></div>
+                </li>
+                <li>
+                  <div class="collapsible-header red" onclick="fresa()"><input type="checkbox" class="filled-in" name="fresa" id="test14" value="Jugo de Fresa"/>
+                        <label for="test14" class="white-text"> Fresa</label></div>
+                </li>
+               </ul>
+            </div>
+
+            <div class="col l3 s12 hide" id="cafe">
+            <h5 class="center-align" >Café</h5>
+              <ul class="collapsible popout" data-collapsible="accordion">
+                <li>
+                  <div class="collapsible-header red" onclick="americano()"><input type="checkbox" class="filled-in" name="americano" id="test19" value="Café Americano"/>
+                        <label for="test19" class="white-text"> Americano</label></div>
+                </li>
+                <li>
+                  <div class="collapsible-header red" onclick="capuchino()"><input type="checkbox" class="filled-in" name="capuchino" id="test16" value="Café Capuchino"/>
+                        <label for="test16" class="white-text"> Capuchino</label></div>
+                </li>
+                <li>
+                  <div class="collapsible-header red" onclick="expresso()"><input type="checkbox" class="filled-in" name="expresso" id="test17" value="Café Exporesso"/>
+                        <label for="test17" class="white-text"> Exporesso</label></div>
+                </li>
+                <li>
+                  <div class="collapsible-header red" onclick="frape()"><input type="checkbox" class="filled-in" name="frape" id="test18" value="Café Frappé" />
+                        <label for="test18" class="white-text"> Frappé</label></div>
+                </li>
+               </ul>
+            </div>
+
+            <div class="col l3 s12 hide" id="aguas">
+            <h5 class="center-align" >Aguas Frescas</h5>
+              <ul class="collapsible popout" data-collapsible="accordion">
+                <li>
+                  <div class="collapsible-header red" onclick="jamaica()"> <input type="checkbox" class="filled-in" name="frape" id="test20" value="Agua de Jamaica"/>
+                        <label for="test20" class="white-text"> Jamaica</label></div>
+                </li>
+                <li>
+                  <div class="collapsible-header red" onclick="limon()"><input type="checkbox" class="filled-in" name="limon" id="test21" value="Agua de Limón"/>
+                        <label for="test21" class="white-text"> Limón</label></div>
+                </li>
+                <li>
+                  <div class="collapsible-header red" onclick="horchata()"><input type="checkbox" class="filled-in" name="horchata" id="test22" value="Agua de Horchata" />
+                        <label for="test22" class="white-text"> Horchata</label></div>
+                </li>
+                <li>
+                  <div class="collapsible-header red" onclick="tamarindo()"><input type="checkbox" class="filled-in" name="tamarindo" id="test23" value="Agua de Tamarindo" />
+                        <label for="test23" class="white-text"> Tamarindo</label></div>
+                </li>
+               </ul>
+            </div>
+            <div class="col l3 s12 hide center-align" style="font-family: 'Lobster', cursive;" id="imagendiv">
+            <h2 id="tituloimagen"></h2>
+            <img class="circle" src="fondo.jpg" width="200" height="200" id="img">
+          </div> 
+
+          </div>  
+
+        </div> 
+        <div class="row">
+          <div class="col s12 l12 center-align">
+          <button data-target="modal1" class="btn modal-trigger">Ver Pedido Actual</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </form>
+  <div class="fixed-action-btn " style="font-family: 'Baloo', cursive;">
+    <a class=" btn-large red">
+      Contacto
+    </a>
+    <ul>
+      <li><a class="waves-effect waves-light blue btn " href="#chat">Chat Live</a></li>
+      <li>
+        <a href="comentarios.html"  class="waves-effect waves-light green btn ">
+          Comentar
+        </a>
+      </li>
+      <li>
+        <a class="waves-effect waves-light blue btn " href="mapa.html">Ubicación</a>
+      </li>
+    </ul>
+  </div>
+
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h5>Tu pedido:</h5>
+      <div id="results"></div>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close btn green">Comprar</a>
+    </div>
+  </div>
+<div id="App"></div>
+  
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript">
+    
+    function menuentrada(){
+      $("#entrada").removeClass("hide");
+      $("#plato").addClass("hide");
+      $("#postre").addClass("hide");
+      $("#bebidas").addClass("hide");
+
+      $("#jugos").addClass("hide");
+      $("#cafe").addClass("hide");
+      $("#aguas").addClass("hide");
+
+      $('#imagendiv').addClass('hide');
+
+    }
+    function menuplatofuerte(){
+      $("#entrada").addClass("hide");
+      $("#plato").removeClass("hide");
+      $("#postre").addClass("hide");
+      $("#bebidas").addClass("hide");
+
+      $("#jugos").addClass("hide");
+      $("#cafe").addClass("hide");
+      $("#aguas").addClass("hide");
+
+      $('#imagendiv').addClass('hide');
+    }
+    function menupostre(){
+      $("#entrada").addClass("hide");
+      $("#plato").addClass("hide");
+      $("#postre").removeClass("hide");
+      $("#bebidas").addClass("hide");
+
+      $("#jugos").addClass("hide");
+      $("#cafe").addClass("hide");
+      $("#aguas").addClass("hide");
+
+      $('#imagendiv').addClass('hide');
+    }
+    function menubebidas(){
+      $("#entrada").addClass("hide");
+      $("#plato").addClass("hide");
+      $("#postre").addClass("hide");
+      $("#bebidas").removeClass("hide");
+
+      $('#imagendiv').addClass('hide');
+    }
+
+    function menujugos(){
+      $("#jugos").removeClass("hide");
+      $("#cafe").addClass("hide");
+      $("#aguas").addClass("hide");
+    }
+    function menucafe(){
+      $("#jugos").addClass("hide");
+      $("#cafe").removeClass("hide");
+      $("#aguas").addClass("hide");
+    }
+    function menuaguas(){
+      $("#jugos").addClass("hide");
+      $("#cafe").addClass("hide");
+      $("#aguas").removeClass("hide");
+    }
+
+
+    function coctel(){
+      $('#imagendiv').removeClass('hide');
+      $('#imagendiv').addClass('offset-l1');
+      $('#img').attr('src','comida/entrada/ensalada.jpg');
+    }
+    function yogurt(){
+      $('#imagendiv').removeClass('hide');
+      $('#imagendiv').addClass('offset-l1');
+      $('#img').attr('src','comida/entrada/sopa.jpeg');
+
+    }
+    function donas(){
+      $('#imagendiv').removeClass('hide');
+      $('#imagendiv').addClass('offset-l1');
+      $('#img').attr('src','comida/entrada/quesadillas.jpg');
+
+    }
+    function hot(){
+      $('#imagendiv').removeClass('hide');
+      $('#imagendiv').addClass('offset-l1');
+      $('#img').attr('src','comida/entrada/sandwich.jpg');
+
+    }
+
+
+
+    function chilaquiles(){
+      $('#imagendiv').removeClass('hide');
+      $('#imagendiv').addClass('offset-l1');
+      $('#img').attr('src','comida/plato fuerte/lomo.jpg');
+
+    }
+    function enchiladas(){
+      $('#imagendiv').removeClass('hide');
+      $('#imagendiv').addClass('offset-l1');
+      $('#img').attr('src','comida/plato fuerte/milanesa.jpg');
+
+    }
+    function huevos(){
+      $('#imagendiv').removeClass('hide');
+      $('#imagendiv').addClass('offset-l1');
+      $('#img').attr('src','comida/plato fuerte/carne.jpeg');
+
+    }
+    function burrito(){
+      $('#imagendiv').removeClass('hide');
+      $('#imagendiv').addClass('offset-l1');
+      $('#img').attr('src','comida/plato fuerte/pozole.jpeg');
+
+    }
+
+    function pastel(){
+      $('#imagendiv').removeClass('hide');
+      $('#imagendiv').addClass('offset-l1');
+      $('#img').attr('src','desayuno/postres/pastel.jpg');
+    }
+    function fresas(){
+      $('#imagendiv').removeClass('hide');
+      $('#imagendiv').addClass('offset-l1');
+      $('#img').attr('src','desayuno/postres/fresas.jpeg');
+
+    }
+    function helado(){
+      $('#imagendiv').removeClass('hide');
+      $('#imagendiv').addClass('offset-l1');
+      $('#img').attr('src','desayuno/postres/helado.jpg');
+
+    }
+    function duraznos(){
+      $('#imagendiv').removeClass('hide');
+      $('#imagendiv').addClass('offset-l1');
+      $('#img').attr('src','desayuno/postres/duraznos.jpg');
+
+    }
+
+    function zanahoria(){
+      $('#imagendiv').removeClass('hide');
+      $('#imagendiv').removeClass('offset-l1');
+      $('#img').attr('src','desayuno/bebidas/jugos/zanahoria.jpeg');
+
+    }
+    function naranja(){
+      $('#imagendiv').removeClass('hide');
+      $('#imagendiv').removeClass('offset-l1');
+      $('#img').attr('src','desayuno/bebidas/jugos/naranja.jpeg');
+
+    }
+    function pina(){
+      $('#imagendiv').removeClass('hide');
+      $('#imagendiv').removeClass('offset-l1');
+      $('#img').attr('src','desayuno/bebidas/jugos/pina.jpg');
+
+    }
+    function fresa(){
+      $('#imagendiv').removeClass('hide');
+      $('#imagendiv').removeClass('offset-l1');
+      $('#img').attr('src','desayuno/bebidas/jugos/fresa.jpg');
+
+    }
+
+    function americano(){
+      $('#imagendiv').removeClass('hide');
+      $('#imagendiv').removeClass('offset-l1');
+      $('#img').attr('src','desayuno/bebidas/cafe/americano.jpeg');
+
+    }
+    function capuchino(){
+      $('#imagendiv').removeClass('hide');
+      $('#imagendiv').removeClass('offset-l1');
+      $('#img').attr('src','desayuno/bebidas/cafe/capuchino.jpg');
+
+    }
+    function expresso(){
+      $('#imagendiv').removeClass('hide');
+      $('#imagendiv').removeClass('offset-l1');
+      $('#img').attr('src','desayuno/bebidas/cafe/expreso.jpg');
+
+    }
+    function frape(){
+      $('#imagendiv').removeClass('hide');
+      $('#imagendiv').removeClass('offset-l1');
+      $('#img').attr('src','desayuno/bebidas/cafe/frape.jpg');
+
+    }
+
+    function jamaica(){
+      $('#imagendiv').removeClass('hide');
+      $('#imagendiv').removeClass('offset-l1');
+      $('#img').attr('src','desayuno/bebidas/Agua/jamaica.jpg');
+
+    }
+    function limon(){
+      $('#imagendiv').removeClass('hide');
+      $('#imagendiv').removeClass('offset-l1');
+      $('#img').attr('src','desayuno/bebidas/Agua/limon.jpg');
+
+    }
+    function horchata(){
+      $('#imagendiv').removeClass('hide');
+      $('#imagendiv').removeClass('offset-l1');
+      $('#img').attr('src','desayuno/bebidas/Agua/horchata.jpg');
+
+    }
+    function tamarindo(){
+      $('#imagendiv').removeClass('hide');
+      $('#imagendiv').removeClass('offset-l1');
+      $('#img').attr('src','desayuno/bebidas/Agua/tamarindo.jpg');
+
+    }
+  function showValues() {
+    var fields = $( ":input" ).serializeArray();
+    $( "#results" ).empty();
+    $.each(fields, function(i, field){
+      $("#results").append(`<div class='chip'>${field.value}</div>`);
+    });
+    
+  }
+  $(document).ready(function(){
+    $( ":checkbox" ).click( showValues );
+  });
+  showValues();
+  </script>
+  
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js">
+    </script><script src="https://unpkg.com/react@latest/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+<script type="text/babel">
+
+
+
+  var config = {
+    apiKey: "AIzaSyBHcYwblvxOA6DHInb3bsvv-zsDktpI74w",
+    authDomain: "primerproyecto-a3f76.firebaseapp.com",
+    databaseURL: "https://primerproyecto-a3f76.firebaseio.com",
+    projectId: "primerproyecto-a3f76",
+    storageBucket: "primerproyecto-a3f76.appspot.com",
+    messagingSenderId: "803617783036"
+  };
+
+  firebase.initializeApp(config);
+
+
+
+    class Chat extends React.Component {
+      constructor(props) {  
+        super(props);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.logged = this.logged.bind(this); 
+        this.noLogged = this.noLogged.bind(this);
+        this.state ={
+          items : []
+        }
+        
+
+      }
+
+      noLogged(){
+        return (
+            <div className="center">
+              <h6 className="white-text" style={{fontFamily: 'Lobster'}}>Para enviar mensaje necesitas estar logueado</h6>
+              <a className="btn" onClick={this.props.onAuth}><strong>Login</strong></a>
+            </div>
+           
+          )
+      }
+      logged(){
+        return (
+            <div  >
+              <form onSubmit={this.handleSubmit} className="row" >
+                <div className="col l10">
+                  <input ref="mensajeInput" className="white"/>
+                 </div>
+                <div className="col l2">
+                  <button className="btn white red-text"><i className="material-icons">send</i></button>
+                </div>
+              </form>
+            </div>
+          )
+      }
+
+      render() {
+
+        return (
+          <div id="chat" className="modal row red" >
+              <h5 className="center white-text" style={{fontFamily: 'Lobster'}} >
+                Chat Live Food Service
+              </h5>
+              <div className="row">
+                <TodoListChat items={this.state.items}  user={this.props.user} />
+              </div>
+            {this.props.user ? this.logged() : this.noLogged() }
+          </div>
+        );
+      }
+       
+
+      handleSubmit(e) {
+
+
+        e.preventDefault();
+        let id = Date.now()
+        let mesajesDB = firebase.database().ref().child("chat/"+id)
+        let t = this
+        var fecha=new Date()
+        var newItem = {
+          id: id, //Return the number of milliseconds since 1970/01/01:
+          text: ReactDOM.findDOMNode(t.refs.mensajeInput).value,
+          date : fecha.getDate() + "/" + fecha.getMonth() + "/" + fecha.getFullYear() + " " + fecha.getHours() + ":"+ fecha.getMinutes(),
+          photoURL : this.props.user.photoURL,
+          user : this.props.user.displayName,
+          favorite : 0
+          
+        };
+        ReactDOM.findDOMNode(t.refs.mensajeInput).value = ""
+        mesajesDB.set(newItem)
+      }
+    }
+
+    class ItemListChat extends React.Component {
+      constructor(props) {
+        super(props);
+        this.changeIcon = this.changeIcon.bind(this)
+        this.isFavorite = this.isFavorite.bind(this)
+        this.verificarUsuario = this.verificarUsuario.bind(this)
+         this.state={
+          favorite : false,
+          likes:0
+        }
+      }
+      componentDidMount() {
+        let mDB = firebase.database().ref().child("chat/"+this.props.item.id+"/favorite")
+        mDB.on('value', snap => {
+          this.setState({likes : snap.val()})
+        })
+      }
+      isFavorite (){
+        if (this.state.likes > 0) {
+
+          return (<i className="material-icons red-text" onClick={this.changeIcon}>favorite</i>)
+        }else{
+          return (<i className="material-icons red-text" onClick={this.changeIcon}>favorite_border</i>)
+        }
+        
+      }
+
+      changeIcon () {
+        if (this.state.favorite) {
+          firebase.database().ref("chat/"+this.props.item.id).update({
+              favorite: this.state.likes-1
+            })
+          this.setState({favorite : false})
+        }else{
+          firebase.database().ref("chat/"+this.props.item.id).update({
+              favorite: this.state.likes+1
+            })
+          this.setState({favorite : true})
+        }
+        
+      }
+
+      verificarUsuario(){
+        try {
+          if (this.props.user.displayName !== this.props.item.user   ){
+            return (
+              <div className="row">
+                  <div className="col l3 center"><br/>
+                      <img src={this.props.item.photoURL} style={{width:40, height:40 }}  alt="" className="circle"/>
+                      <br/>{this.props.item.user}
+                  </div>
+                  <div className="col l9 right-align">
+                    {this.isFavorite()}{this.state.likes}<br/>
+                    <span className="title bold"></span>
+                      <p>{this.props.item.text}<br/><span className="blue-text">{this.props.item.date}</span></p> 
+                  </div>
+                </div>
+              )
+          }else {
+            return(
+              <div className="row">
+                  <div className="col l9">
+                    {this.isFavorite()}{this.state.likes}<br/>
+                    <span className="title bold"></span>
+                      <p>{this.props.item.text}<br/><span className="blue-text">{this.props.item.date}</span></p> 
+                  </div>
+                  <div className="col l3 center"><br/>
+                      <img src={this.props.item.photoURL} style={{width:40, height:40 }}  alt="" className="circle"/>
+                      <br/>{this.props.item.user}
+                  </div>
+                </div>
+              
+              )
+          }
+        }catch(err) {
+          return (
+              <div className="row">
+                  <div className="col l3 center"><br/>
+                      <img src={this.props.item.photoURL} style={{width:40, height:40 }}  alt="" className="circle"/>
+                      <br/>{this.props.item.user}
+                  </div>
+                  <div className="col l9 right-align">
+                    {this.isFavorite()}{this.state.likes}<br/>
+                    <span className="title bold"></span>
+                      <p>{this.props.item.text}<br/><span className="blue-text">{this.props.item.date}</span></p> 
+                  </div>
+                </div>
+              )
+            
+        }
+
+        
+      }
+
+      render() {
+        return (<li className="collection rigth"> 
+            {this.verificarUsuario()}
+            </li>
+          )
+            
+      }
+    }
+
+    class TodoListChat extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state={
+          items: []
+        }
+      }
+
+      componentDidMount() {
+        let t= this
+        let mDB = firebase.database().ref().child("chat")
+        mDB.on('value', snap => {
+          var temp =[]
+          for (var a in snap.val()){
+            temp.push(snap.val()[a])
+          }
+            t.setState({items : temp})
+        })
+        ReactDOM.findDOMNode(this).scrollTop = 5000000
+      }
+      componentDidUpdate() {
+        ReactDOM.findDOMNode(this).scrollTop = 5000000
+    }
+
+      
+
+      render() {
+        return (
+          <ul className="collection col l12 white" style={{fontFamily: 'Baloo',overflow: "scroll" ,  height : "250px"}} >
+            {this.state.items.map(item => (
+              <ItemListChat key={item.id} item={item} user={this.props.user} />
+            ))}
+          </ul>
+        );
+      }
+    }
+    
+    class App extends React.Component {
+       constructor(props) {
+        super(props);
+        this.handleAuth=this.handleAuth.bind(this)
+        this.handleLogout=this.handleLogout.bind(this)
+        this.state={
+          user: null,
+          rankin  : 0
+        }
+        
+      }
+      componentDidMount() {
+        let t = this
+        let userf = null
+        
+        firebase.auth().onAuthStateChanged((user) => {
+          let rankin = 0
+
+          let mDB = firebase.database().ref().child("Rank/"+user.displayName)
+            mDB.on('value', snap => {
+              console.log(snap.val())
+              t.setState({ rankin : snap.val().rankin})
+          })
+
+          console.log(rankin)
+        t.setState({ user:user , rankin : rankin })
+
+        })
+        
+        
+      }
+      handleAuth(){
+          const provider = new firebase.auth.GoogleAuthProvider();
+
+          firebase.auth().signInWithPopup(provider)
+            .then((result) => {
+
+            })
+            .catch(error => console.error(`Error : ${error.code}: ${error.message}`))
+
+      }
+      handleLogout(){
+        firebase.auth().signOut()
+          .then(() =>{
+           console.log('te has deslogeado')
+           location.reload();
+        })
+          .catch(error => console.error(`Error : ${error.code}: ${error.message}`))
+      }
+      
+
+      render() {
+        return (
+              
+                <Chat user={this.state.user} onAuth={this.handleAuth.bind(this)}/> 
+
+          )
+      }
+
+    }
+
+ ReactDOM.render(<App />, document.getElementById("App"))
+  $('.modal').modal();
+  
+</script>
+  </body>
+</html>

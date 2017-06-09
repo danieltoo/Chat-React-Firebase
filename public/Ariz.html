@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ejemplo Chat</title>
+  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+</head>
+<body>
+<input type="text" id="comentario">
+<button onclick="agre()">Comentar</button>
+<ul id="comentarioslista"></ul>
+
+<script type="text/javascript">
+// ___________________Cambias los datos por los de tu app
+  var config = {
+    apiKey: "AIzaSyBHcYwblvxOA6DHInb3bsvv-zsDktpI74w",
+    authDomain: "primerproyecto-a3f76.firebaseapp.com",
+    databaseURL: "https://primerproyecto-a3f76.firebaseio.com",
+    projectId: "primerproyecto-a3f76",
+    storageBucket: "primerproyecto-a3f76.appspot.com",
+    messagingSenderId: "803617783036"
+  };
+
+  firebase.initializeApp(config);
+//__________________________________________________________
+
+
+  var texto = document.getElementById('comentario') // input donde se escriben los comentarios
+  var contenedor = document.getElementById('comentarioslista') // ul que almacenara la lista de comentarios
+  var  mesajesDB = firebase.database().ref().child("comentarios") // hace referencia a la base en los mensajes 
+
+  function agre() { //función que se ejecuta cuando das clic 
+    let newUserMessage = mesajesDB.push()  // funcion para indicar que meteremos un nuevo mensaje 
+    let mesg = { // objeto que contiene los datos del mensaje
+      text : texto.value // texto del mensaje se guarda en el mensaje  
+    }
+    newUserMessage.set(mesg);  // almacena el mensaje en la base 
+    texto.value=""; // quita el contenido del input 
+  }
+
+    // Este es el socket que esta en espera de un nuevo mensaje
+    mesajesDB.on('child_added', snap => { // retorna un objet con nombre snap
+          contenedor.innerHTML += `<li>${snap.val().text}</li>`; // agrega un item li ne el ul contenedor de la lista
+    })
+
+</script>
+</body>
+</html>

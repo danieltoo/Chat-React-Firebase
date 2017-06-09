@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+	<title>Food Service</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Baloo|Lobster|Pacifico|Righteous|Shrikhand|Timmana" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style type="text/css">
+      .parallax-container {
+        color: rgba(255,255,255,.9);
+      }
+
+      .parallax {
+        height: 100%;
+
+      }
+
+      body{
+        overflow-x: hidden;
+        overflow-y: hidden;
+      }
+      body {
+        background: url(fondo.jpg);
+      }
+      #App {
+    width: 100%;
+    height: 650px;
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+  </style>
+</head>
+<body>
+  
+
+<div id="App"></div>
+
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js">
+    </script><script src="https://unpkg.com/react@latest/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+<script type="text/babel">
+
+  
+  var config = {
+    apiKey: "AIzaSyBHcYwblvxOA6DHInb3bsvv-zsDktpI74w",
+    authDomain: "primerproyecto-a3f76.firebaseapp.com",
+    databaseURL: "https://primerproyecto-a3f76.firebaseio.com",
+    projectId: "primerproyecto-a3f76",
+    storageBucket: "primerproyecto-a3f76.appspot.com",
+    messagingSenderId: "803617783036"
+  };
+
+  firebase.initializeApp(config);
+
+class Rank extends React.Component { 
+
+      constructor(props) {
+        super(props);
+        this.showRank = this.showRank.bind(this)
+        this.defaultRank = this.defaultRank.bind(this)
+        this.uno = this.uno.bind(this)
+        this.dos = this.dos.bind(this)
+        this.tres = this.tres.bind(this)
+        this.cuatro = this.cuatro.bind(this)
+        this.cinco = this.cinco.bind(this)
+        this.fijar = this.fijar.bind(this)
+        this.state = {
+          defaultR : 0,
+          rank : 0
+        }
+      }
+      
+
+      defaultRank(){
+        this.setState({rank : this.state.defaultR})
+      }
+      uno(){
+        this.setState({rank : 1})
+      }
+      dos(){
+        this.setState({rank : 2})
+
+      }
+      tres(){
+        this.setState({rank : 3})
+      }
+      cuatro(){
+        this.setState({rank : 4})
+      }
+      cinco(){
+        this.setState({rank : 5})
+      }
+      fijar(){
+        firebase.database().ref('Rank/' + this.props.user.displayName).update({
+          rankin: this.state.rank
+        })
+        console.log(this.props.user.displayName)
+        this.setState({defaultR : this.state.rank })
+      }
+      showRank() {
+          if (this.state.rank == 0 ) {
+            return(
+              <div className="col l12 white-text"  >
+                <i className="material-icons" ref="uno" onMouseLeave={this.defaultRank}  onMouseOver={this.uno}>star_border</i> 
+                <i className="material-icons" ref="dos" onMouseLeave={this.defaultRank}  onMouseOver={this.dos} >star_border</i>
+                <i className="material-icons" ref="tres" onMouseLeave={this.defaultRank}  onMouseOver={this.tres} >star_border</i>
+                <i className="material-icons" ref="cuatro" onMouseLeave={this.defaultRank}  onMouseOver={this.cuatro} >star_border</i>
+                <i className="material-icons" ref="cinco" onMouseLeave={this.defaultRank}  onMouseOver={this.cinco} >star_border</i>
+              </div>
+              )
+          }else if (this.state.rank == 1 ) {
+            return(
+              <div className="col l12 white-text" onClick={this.fijar} >
+                <i className="material-icons" ref="uno" onMouseLeave={this.defaultRank}  onMouseOver={this.uno}  >star</i> 
+                <i className="material-icons" ref="dos" onMouseLeave={this.defaultRank}  onMouseOver={this.dos} >star_border</i>
+                <i className="material-icons" ref="tres" onMouseLeave={this.defaultRank}  onMouseOver={this.tres} >star_border</i>
+                <i className="material-icons" ref="cuatro" onMouseLeave={this.defaultRank}  onMouseOver={this.cuatro} >star_border</i>
+                <i className="material-icons" ref="cinco" onMouseLeave={this.defaultRank}  onMouseOver={this.cinco} >star_border</i>
+              </div>
+              )
+          }else if (this.state.rank == 2 ) {
+            return(
+              <div className="col l12 white-text"  onClick={this.fijar} >
+                <i className="material-icons" ref="uno" onMouseLeave={this.defaultRank}  onMouseOver={this.uno} >star</i> 
+                <i className="material-icons" ref="dos" onMouseLeave={this.defaultRank}  onMouseOver={this.dos} >star</i>
+                <i className="material-icons" ref="tres" onMouseLeave={this.defaultRank}  onMouseOver={this.tres} >star_border</i>
+                <i className="material-icons" ref="cuatro" onMouseLeave={this.defaultRank}  onMouseOver={this.cuatro} >star_border</i>
+                <i className="material-icons" ref="cinco" onMouseLeave={this.defaultRank}  onMouseOver={this.cinco} >star_border</i>
+              </div>
+              )
+          }else if (this.state.rank == 3 ) {
+            return(
+              <div className="col l12 white-text"  onClick={this.fijar} >
+                <i className="material-icons" ref="uno" onMouseLeave={this.defaultRank}  onMouseOver={this.uno} >star</i> 
+                <i className="material-icons" ref="dos" onMouseLeave={this.defaultRank}  onMouseOver={this.dos} >star</i>
+                <i className="material-icons" ref="tres" onMouseLeave={this.defaultRank}  onMouseOver={this.tres} >star</i>
+                <i className="material-icons" ref="cuatro" onMouseLeave={this.defaultRank}  onMouseOver={this.cuatro} >star_border</i>
+                <i className="material-icons" ref="cinco" onMouseLeave={this.defaultRank}  onMouseOver={this.cinco} >star_border</i>
+              </div>
+              )
+          }else if (this.state.rank == 4 ) {
+            return(
+              <div className="col l12 white-text"  onClick={this.fijar} >
+                <i className="material-icons" ref="uno" onMouseLeave={this.defaultRank}  onMouseOver={this.uno} >star</i> 
+                <i className="material-icons" ref="dos" onMouseLeave={this.defaultRank}  onMouseOver={this.dos} >star</i>
+                <i className="material-icons" ref="tres" onMouseLeave={this.defaultRank}  onMouseOver={this.tres} >star</i>
+                <i className="material-icons" ref="cuatro" onMouseLeave={this.defaultRank}  onMouseOver={this.cuatro} >star</i>
+                <i className="material-icons" ref="cinco" onMouseLeave={this.defaultRank}  onMouseOver={this.cinco} >star_border</i>
+              </div>
+              )
+          }else if (this.state.rank == 5 ) {
+            return(
+              <div className="col l12 white-text"  onClick={this.fijar} >
+                <i className="material-icons" ref="uno" onMouseLeave={this.defaultRank}  onMouseOver={this.uno} >star</i> 
+                <i className="material-icons" ref="dos" onMouseLeave={this.defaultRank}  onMouseOver={this.dos} >star</i>
+                <i className="material-icons" ref="tres" onMouseLeave={this.defaultRank}  onMouseOver={this.tres} >star</i>
+                <i className="material-icons" ref="cuatro" onMouseLeave={this.defaultRank}  onMouseOver={this.cuatro} >star</i>
+                <i className="material-icons" ref="cinco" onMouseLeave={this.defaultRank}  onMouseOver={this.cinco} >star</i>
+              </div>
+              )
+          }
+
+      }
+     componentWillReceiveProps(nextProps) {
+      this.setState({rank : nextProps.rankin})
+        
+      }
+
+      render() {
+        return (
+        <div className="row">
+
+          {this.showRank()}
+          <span className="white-text" style={{fontFamily: 'Lobster'}}>{this.state.rank} puntos</span> 
+        </div>
+          )
+      }
+    }
+
+    class Comentarios extends React.Component {
+      constructor(props) {  
+        super(props);
+        this.handleSubmit = this.handleSubmit.bind(this);
+
+        this.logged = this.logged.bind(this); 
+        this.noLogged = this.noLogged.bind(this);
+        this.state ={
+          items : []
+        }
+        
+
+      }
+
+      noLogged(){
+        return (
+            <div>
+              <h6 className="white-text" style={{fontFamily: 'Lobster'}}>Para comentar necesitas estar logueado</h6>
+              <a className="btn" onClick={this.props.onAuth}><strong>Login</strong></a>
+            </div>
+           
+          )
+      }
+      logged(){
+        return (
+            <div id="content">
+              <form onSubmit={this.handleSubmit} className="row">
+                <div className="col l11">
+                  <input ref="mensajeInput" className="white" />
+                </div>
+                <div className="col l1">
+                  <button className="btn-floating red"><i className="material-icons">send</i></button>
+                </div>
+              </form>
+            </div>
+          )
+      }
+
+      render() {
+
+        return (
+          <div className="container ">
+            <div className="row">
+              
+            </div><div className="col l12 right-align">
+              {this.props.user ? this.logged() : this.noLogged() }
+            </div>
+            <TodoList items={this.state.items} />
+            
+          </div>
+        );
+      }
+
+      handleSubmit(e) {
+        e.preventDefault();
+        let id = Date.now()
+        let mesajesDB = firebase.database().ref().child("mensajes/"+id)
+        let t = this
+        var fecha=new Date()
+        var newItem = {
+          id: id, //Return the number of milliseconds since 1970/01/01:
+          text: ReactDOM.findDOMNode(t.refs.mensajeInput).value,
+          date : fecha.getDate() + "/" + fecha.getMonth() + "/" + fecha.getFullYear() + " " + fecha.getHours() + ":"+ fecha.getMinutes(),
+          photoURL : this.props.user.photoURL,
+          user : this.props.user.displayName,
+          favorite : 0
+          
+        };
+        thReactDOM.findDOMNode(t.refs.mensajeInput).value=""
+        mesajesDB.set(newItem)
+      }
+    }
+
+    class ItemList extends React.Component {
+      constructor(props) {
+        super(props);
+        this.changeIcon = this.changeIcon.bind(this)
+        this.isFavorite = this.isFavorite.bind(this)
+         this.state={
+          favorite : false,
+          likes:0
+        }
+      }
+      componentDidMount() {
+        let mDB = firebase.database().ref().child("mensajes/"+this.props.item.id+"/favorite")
+        mDB.on('value', snap => {
+          this.setState({likes : snap.val()})
+        })
+      }
+      isFavorite (){
+        if (this.state.likes > 0) {
+
+          return (<i className="material-icons red-text" onClick={this.changeIcon}>favorite</i>)
+        }else{
+          return (<i className="material-icons red-text" onClick={this.changeIcon}>favorite_border</i>)
+        }
+        
+      }
+
+      changeIcon () {
+        if (this.state.favorite) {
+          firebase.database().ref("mensajes/"+this.props.item.id).update({
+              favorite: this.state.likes-1
+            })
+          this.setState({favorite : false})
+        }else{
+          firebase.database().ref("mensajes/"+this.props.item.id).update({
+              favorite: this.state.likes+1
+            })
+          this.setState({favorite : true})
+        }
+        
+      }
+      render() {
+        return (
+            <li className="collection-item avatar"> 
+                <img src={this.props.item.photoURL} style={{width:40, height:40 }}  alt="" className="circle"/>
+                <span className="title bold">{this.props.item.user}</span>
+                <p>{this.props.item.text}<br/><span className="blue-text">{this.props.item.date}</span></p> 
+                <a className="secondary-content blue-text">
+                {this.isFavorite()}{this.state.likes}</a> 
+            </li>
+          )
+      } 
+    }
+
+
+
+    class TodoList extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state={
+          items: []
+        }
+      }
+
+      componentDidMount() {
+        let mDB = firebase.database().ref().child("mensajes")
+        mDB.on('child_added', snap => {
+          this.setState((prevState) => ({
+            items: prevState.items.concat(snap.val())
+          }))
+        })
+      }
+
+      
+
+      render() {
+        return (
+          <ul className="collection" style={{fontFamily: 'Baloo'}} >
+            {this.state.items.reverse().map(item => (
+              <ItemList key={item.id} item={item} />
+            ))}
+          </ul>
+        );
+      }
+    }
+
+    class Nav extends React.Component{
+     constructor(props) {
+       super(props);
+       this.renderUserData =this.renderUserData.bind(this)
+       this.renderLoginButton =this.renderLoginButton.bind(this)
+     }
+     renderUserData () {
+        return (
+          <nav className=" blue-grey darken-4" role="navigation" data-component="Navbar">
+            <div className="nav-wrapper container">
+              <a id="logo-container" href="/" className="brand-logo active">
+                <h4 style={{fontFamily:"Lobster"}}>Food Service</h4>
+              </a>
+              <ul className="right hide-on-med-and-down " style={{fontFamily: 'Baloo'}}>
+                <li className="tab"><a href="desayunos.html">Desayunos</a></li>
+                <li className="tab"><a href="comidas.html" >Comidas</a></li>
+                <li className="tab"><a href="cenas.html">Cenas</a></li>
+                <li className="tab"><a href="reporte.html">Reporte</a></li>
+                <li>
+                  <img  alt="" className="circle rigth" width={40} height={60} src={this.props.user.photoURL} style={{paddingTop : "10px",paddingBottom:"10px"}} />
+                    
+                </li>
+                <li>
+                  <a onClick={this.props.onLogout} className="btn red">Salir</a>
+                </li>
+                
+              </ul>
+              <ul id="nav-mobile" className="side-nav">
+                <li className="tab"><a href="desayunos.html">Desayunos</a></li>
+                <li className="tab"><a href="comidas.html" >Comidas</a></li>
+                <li className="tab"><a href="cenas.html">Cenas</a></li>
+                
+              </ul>
+              <a href="#" data-activates="nav-mobile" className="button-collapse"><i className="material-icons">menu</i></a>
+            </div>
+          </nav>
+        )
+      }
+
+      renderLoginButton () {
+        return (
+            <nav className=" blue-grey darken-4" role="navigation" data-component="Navbar">
+            <div className="nav-wrapper container">
+              <a id="logo-container" href="/" className="brand-logo active">
+                <h4 style={{fontFamily: 'Lobster'}}>Food Service</h4>
+              </a>
+              <ul className="right hide-on-med-and-down " style={{fontFamily: 'Baloo'}}>
+                <li className="tab"><a href="desayunos.html">Desayunos</a></li>
+                <li className="tab"><a href="comidas.html" >Comidas</a></li>
+                <li className="tab"><a href="cenas.html">Cenas</a></li>
+                <li className="tab"><a href="reporte.html">Reporte</a></li>
+
+                <li  className="tab">
+                  <a onClick={this.props.onAuth} className="btn">Login</a>
+                </li>
+                
+              </ul>
+              <ul id="nav-mobile" className="side-nav">
+                <li className="tab"><a href="desayunos.html">Desayunos</a></li>
+                <li className="tab"><a href="comidas.html" >Comidas</a></li>
+                <li className="tab"><a href="cenas.html">Cenas</a></li>
+                
+              </ul>
+              <a href="#" data-activates="nav-mobile" className="button-collapse"><i className="material-icons">menu</i></a>
+            </div>
+          </nav>
+        )
+      }
+
+      render(){
+        return(
+          <div>
+              {this.props.user ? this.renderUserData() : this.renderLoginButton()}
+          </div>
+          )
+      }
+
+    }
+
+    
+
+
+    class App extends React.Component {
+       constructor(props) {
+        super(props);
+        this.handleAuth=this.handleAuth.bind(this)
+        this.handleLogout=this.handleLogout.bind(this)
+        this.state={
+          user: null,
+          rankin  : 0
+        }
+        
+      }
+      componentDidMount() {
+        let t = this
+        let userf = null
+        
+        firebase.auth().onAuthStateChanged((user) => {
+          let rankin = 0
+
+          let mDB = firebase.database().ref().child("Rank/"+user.displayName)
+            mDB.on('value', snap => {
+              console.log(snap.val())
+              t.setState({ rankin : snap.val().rankin})
+          })
+
+          console.log(rankin)
+        t.setState({ user:user , rankin : rankin })
+
+        })
+        
+        
+      }
+      handleAuth(){
+          const provider = new firebase.auth.GoogleAuthProvider();
+
+          firebase.auth().signInWithPopup(provider)
+            .then((result) => {
+
+            })
+            .catch(error => console.error(`Error : ${error.code}: ${error.message}`))
+
+      }
+      handleLogout(){
+        firebase.auth().signOut()
+          .then(() =>{
+           console.log('te has deslogeado')
+           location.reload();
+        })
+          .catch(error => console.error(`Error : ${error.code}: ${error.message}`))
+      }
+      
+
+      render() {
+        return (
+            <div>
+              <Nav user={this.state.user}
+              onAuth={this.handleAuth.bind(this)}
+              onLogout={this.handleLogout.bind(this)}/>
+              <div className="row">
+                <div className="col l12 m12 center">
+                  <h3 className="white-text" style={{fontFamily: 'Lobster'}}>Danos tu opiníon</h3>
+                   <Rank user={this.state.user} rankin={this.state.rankin} />
+                </div>
+              </div>
+              <Comentarios user={this.state.user} onAuth={this.handleAuth.bind(this)}/>
+            </div>  
+
+          )
+      }
+
+    }
+
+ ReactDOM.render(<App />, document.getElementById("App"))
+
+  
+</script>
+</body>
+</html>
